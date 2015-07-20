@@ -43,6 +43,8 @@
             $('#' + id).dialog();
         }
     </script>
+
+
 #end
 
 #include("/styles/reporting.css")                        
@@ -134,13 +136,25 @@
                       </table>
                         </div>
                     #end
-                  <div class="output-data">$step.getOutput()</div>
+                    <details>
+                        <summary></summary>
+                        <div class="output-data">$step.getOutput()</div>
+                    </details>
+
                 #end
             #end
 
 	</div>
 	</div>
+<script>
+    $( document ).ready(function() {
+        var len = document.getElementsByTagName("details").length;
+    	for(var i=0; i<len; i++){
+                document.getElementsByTagName("details")[i].setAttributeNode(document.createAttribute("open"));
+      }
+    });
 
+    </script>
 
 #parse("/templates/footer.vm")                        
 
